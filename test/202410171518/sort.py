@@ -1,15 +1,15 @@
 def bubble_sort(l):
   for i in range(len(l)-1):
     for j in range(len(l)-i-1):
-      if l[j] < l[j-1]:
-        l[j-1], l[j] = l[j], l[j-1]
+      if l[j] > l[j+1]:
+        l[j+1], l[j] = l[j], l[j+1]
         
 
 def selection_sort(l):
-  for i in range(1, len(l)):
+  for i in range(0, len(l)-1):
     pivot = i
-    for j in range(i, len(l-1)):
-      if l[pivot] < l[j]:
+    for j in range(i+1, len(l)):
+      if l[j] < l[pivot]:
         pivot = j
     if pivot != i:
       l[pivot], l[i] = l[i], l[pivot]
@@ -17,7 +17,7 @@ def selection_sort(l):
       
       
 def insertion_sort(l):
-  for i in range(len(l)):
+  for i in range(1, len(l)):
     cur = l[i]
     j=i
     while j>0 and l[j-1] > cur:
