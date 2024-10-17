@@ -44,7 +44,7 @@ def merge(l, low, mid, high, new_l):
       new_l[final] = l[b]
       a+=1
       final+=1
-  for i in range(l):
+  for i in range(low, high+1):
     l[i] = new_l[i]
   
 def rec_merge_sort(l, low, high, new_l):
@@ -52,7 +52,7 @@ def rec_merge_sort(l, low, high, new_l):
     mid = (low+high) //2
     rec_merge_sort(l, low, mid, new_l)
     rec_merge_sort(l, mid+1, high, new_l)
-    merge(l, low, mid, high, new_l)
+    merge(l, low, mid+1, high, new_l)
     
 def merge_sort(l):
   new_l = [0]*len(l)
